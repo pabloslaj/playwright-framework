@@ -1,28 +1,31 @@
-import { test, expect } from '@playwright/test';
-import { Env } from '../../../frameworkConfig/env';
-import { HomePage } from '../../pages/homePage';
-import { getOrderDetailsRandomData, getUserRandomData } from '../../testData/randomDataUtils';
+import { test, expect } from "@playwright/test";
+import { Env } from "../../../frameworkConfig/env";
+import { HomePage } from "../../pages/homePage";
+import {
+  getOrderDetailsRandomData,
+  getUserRandomData,
+} from "../../testData/randomDataUtils";
 
-test('test', async ({ page }) => {
+test("test", async ({ page }) => {
   await page.goto(Env.URL);
 
   const homePage = new HomePage(page);
-  
+
   const user = getUserRandomData();
 
   await homePage.performSignUp(user);
   await homePage.performLogin(user);
 
-  await homePage.addProductToCart('Samsung galaxy s6' );
+  await homePage.addProductToCart("Samsung galaxy s6");
 
-  const cartPage =  await homePage.clickOnCart();
+  const cartPage = await homePage.clickOnCart();
+
   await cartPage.clickOnPlaceOrder();
-  
+
   await cartPage.completeOrderDetails(getOrderDetailsRandomData());
 
-  await cartPage.clickOnPurchase();  
+  await cartPage.clickOnPurchase();
   await expect(cartPage.successPurchaseTitle).toBeVisible();
 
   await cartPage.clickOnOk();
 });
-

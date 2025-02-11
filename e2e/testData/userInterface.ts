@@ -1,6 +1,4 @@
-export interface User{
-
-    email: string;
-    pass: string;
-
+export interface User {
+  email: string;
+  pass: string;
 }
