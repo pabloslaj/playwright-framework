@@ -1,15 +1,17 @@
 import { test, expect } from '@playwright/test';
 import { Env } from '../../../frameworkConfig/env';
 import { HomePage } from '../../pages/homePage';
-import { getOrderDetailsRandomData } from '../../testData/randomDataUtils';
+import { getOrderDetailsRandomData, getUserRandomData } from '../../testData/randomDataUtils';
 
 test('test', async ({ page }) => {
   await page.goto(Env.URL);
 
   const homePage = new HomePage(page);
   
-  await homePage.performSignUp(Env.USER, Env.PASS);
-  await homePage.performLogin(Env.USER, Env.PASS);
+  const user = getUserRandomData();
+
+  await homePage.performSignUp(user);
+  await homePage.performLogin(user);
 
   await homePage.addProductToCart('Samsung galaxy s6' );
 

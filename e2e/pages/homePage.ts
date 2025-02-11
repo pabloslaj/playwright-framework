@@ -1,5 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 import { CartPage } from "./cartPage";
+import { User } from "../testData/userInterface";
 
 export class HomePage{
 
@@ -40,10 +41,10 @@ export class HomePage{
         return new CartPage(this.page);
     }
 
-    async performSignUp(username: string, password: string){
+    async performSignUp(user: User){
         this.clickSignUp();
-        await this.txtBoxUserName.fill(username);
-        await this.txtBoxPassword.fill(password);
+        await this.txtBoxUserName.fill(user.email);
+        await this.txtBoxPassword.fill(user.pass);
 
         this.page.once('dialog', dialog => {
             console.log(`Dialog message: ${dialog.message()}`);
@@ -53,10 +54,10 @@ export class HomePage{
         await this.btnSignUp.click();
     }
 
-    async performLogin(username: string, password: string){
+    async performLogin(user: User){
         await this.linkLogin.click();
-        await this.txtBoxLoginUserName.fill(username);
-        await this.txtBoxLoginPassword.fill(password);
+        await this.txtBoxLoginUserName.fill(user.email);
+        await this.txtBoxLoginPassword.fill(user.pass);
         await this.btnLogin.click();
     }
 
