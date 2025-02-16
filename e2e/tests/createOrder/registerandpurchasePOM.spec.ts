@@ -8,8 +8,8 @@ import {
 
 test("test", async ({ page }) => {
   await page.goto(Env.URL);
-  var a;
-    const homePage = new HomePage(page);
+  var u;
+  const homePage = new HomePage(page);
 
   const user = getUserRandomData();
 
@@ -22,7 +22,7 @@ test("test", async ({ page }) => {
 
   await cartPage.clickOnPlaceOrder();
 
-  await cartPage.completeOrderDetails(getOrderDetailsRandomData())
+  await cartPage.completeOrderDetails(getOrderDetailsRandomData());
 
   await cartPage.clickOnPurchase();
   await expect(cartPage.successPurchaseTitle).toBeVisible();
