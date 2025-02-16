@@ -2,7 +2,10 @@
   "name": "automation-framework",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "format": "npx prettier . --write",
+    "prepare": "husky"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,6 +15,7 @@
     "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.2",
     "dotenv": "^16.4.7",
+    "husky": "^9.1.7",
     "prettier": "3.5.0"
   }
 }
