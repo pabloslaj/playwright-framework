@@ -9,14 +9,14 @@ import {
 test("test", async ({ page }) => {
   await page.goto(Env.URL);
 
-  const homePage = new HomePage(page);
+          const homePage = new HomePage(page);
 
   const user = getUserRandomData();
 
   await homePage.performSignUp(user);
   await homePage.performLogin(user);
 
-  await homePage.addProductToCart("Samsung galaxy s6");
+  await homePage.addProductToCart("Samsung galaxy s6")
 
   const cartPage = await homePage.clickOnCart();
 
