@@ -26,16 +26,16 @@ export default defineConfig({
   projects: [
     {
       name: "chrome-tests",
-      use: { 
-        ...devices["Desktop Chrome"], 
-        video: "retain-on-failure" ,
+      use: {
+        ...devices["Desktop Chrome"],
+        video: "retain-on-failure",
         viewport: null,
         deviceScaleFactor: undefined, // Elimina el factor de escala del dispositivo
         isMobile: undefined, // Elimina la configuración de dispositivo móvil si existe
         hasTouch: undefined, // Eliminala configuración de dispositivo táctil si existe
         launchOptions: {
           args: ["--start-maximized"],
-        }
+        },
       },
     },
   ],
