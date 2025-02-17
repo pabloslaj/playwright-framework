@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "format": "npx prettier . --write",
-    "prepare": "husky"
+    "format": "npx prettier . --write"
   },
   "keywords": [],
   "author": "",

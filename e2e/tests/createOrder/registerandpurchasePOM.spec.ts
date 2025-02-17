@@ -8,7 +8,7 @@ import {
 
 test("test", async ({ page }) => {
   await page.goto(Env.URL);
-  var u;
+
   const homePage = new HomePage(page);
 
   const user = getUserRandomData();
